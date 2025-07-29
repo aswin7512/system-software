@@ -87,3 +87,32 @@ int main() {
     bankers(np, nr, pr, avl);
     return 0;
 }
+
+
+
+/*
+
+Enter No. of Processes and Resources: 5 3
+Allocation of P1: 0
+1
+0
+Max Need of P1: 7 5 3
+Allocation of P2: 2 0 0 
+Max Need of P2: 3 2 2
+Allocation of P3: 3 0 2
+Max Need of P3: 9 0 2
+Allocation of P4: 2 1 1
+Max Need of P4: 2 2 2
+Allocation of P5: 0 0 2
+Max Need of P5: 4 3 3
+Enter Resource Availability: 3 3 2
+
+Need Matrix...
+P1: 7 4 3 
+P2: 1 2 2 
+P3: 6 0 0 
+P4: 0 1 1 
+P5: 4 3 1 
+Safe Sequence: P2 -> P4 -> P5 -> P1 -> P3 -> Halt
+
+*/
