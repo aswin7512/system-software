@@ -21,8 +21,8 @@
       * Execute for `tm = tq` time units
       * Subtract `tq` from `rbt[i]`
       * Add newly arrived processes to queue:
-        **For** each process `j`:
-        **If** `at[j] > cur_t` and `at[j] <= cur_t + tm` and `ct[j] == -1`, then add `j` to `wq`
+        * **For** each process `j`:
+        * **If** `at[j] > cur_t` and `at[j] <= cur_t + tm` and `ct[j] == -1`, then add `j` to `wq`
       * Add process `i` back to end of queue
    3. **Else**:
 
