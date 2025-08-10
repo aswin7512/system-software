@@ -62,3 +62,19 @@ int main() {
 	display(pr, n);
 	return 0;
 }
+
+/*
+
+Enter No. of Processes: 3
+Enter Burst Time and Priority of,
+P0: 4 2
+P1: 2 1
+P2: 6 3
+ PId  BT Pri  WT TAT
+   1   2   1   0   2
+   0   4   2   2   6
+   2   6   3   6  12
+Average Waiting time: 2.67
+Average Turn Around time: 6.67
+
+*/

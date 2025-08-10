@@ -62,3 +62,19 @@ int main() {
 	display(pr, n);
 	return 0;
 }
+
+/*
+
+Enter No. of Processes: 3
+Enter Burst Time of,
+P0: 5
+P1: 2
+P2: 4
+ PId  BT  WT TAT
+   1   2   0   2
+   2   4   2   6
+   0   5   6  11
+Average Waiting time: 2.67
+Average Turn Around time: 6.33
+
+*/

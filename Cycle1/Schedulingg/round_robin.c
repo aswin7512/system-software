@@ -92,3 +92,22 @@ int main() {
 	display(pr, n);
 	return 0;
 }
+
+/*
+
+Enter No. of Processes: 4
+Enter Arrival Time, Burst Time of,
+P0: 0 6
+P1: 0 4
+P2: 3 5
+P3: 5 2
+Enter Time Quantum: 3
+ PId  AT  BT  WT TAT
+   0   0   6   6  12
+   1   0   4  11  15
+   2   3   5   9  14
+   3   5   2   7   9
+Average Waiting time: 8.25
+Average Turn Around time: 12.50
+
+*/

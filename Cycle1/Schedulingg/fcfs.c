@@ -1,4 +1,4 @@
-//fcfs process scheduling...
+//FCFS Process scheduling...
 
 #include<stdio.h>
 
@@ -53,3 +53,22 @@ int main() {
 	display(pr, n);
 	return 0;
 }
+
+
+
+
+/*
+
+Enter No. of Processes: 3    
+Enter Burst Time of,
+P0: 5
+P1: 2
+P2: 4
+ PId  BT  WT TAT
+   0   5   0   5
+   1   2   5   7
+   2   4   7  11
+Average Waiting time: 4.00
+Average Turn Around time: 7.67
+
+*/
