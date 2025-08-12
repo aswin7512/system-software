@@ -34,7 +34,7 @@ void run (FILE* inter, char opcode[], char label[], char op[]) {
 			}
 		}
 		if (found) {
-			printf("Symbol %s Already Declared!!!\n");
+			printf("Symbol %s Already Declared!!!\n", label);
 			exit(1);
 		} else {
 			strcpy(st[st_cnt].lab, label);
