@@ -19,7 +19,7 @@ int st_cnt = 0, otsize = 0, start = 0, locctr = 0;
 stab st[MAX_SYM];
 optb otab[MAX_SYM];
 
-void run (FILE* inter, char opcode[], char label[], char op[]) {
+void pass1 (FILE* inter, char opcode[], char label[], char op[]) {
 	if (strcmp(opcode, "START") == 0) {
 		start = locctr = (int) strtol(op, NULL, 16);
 		fprintf(inter, "%X\t%s\t%s\t%s\n", start, label, opcode, op);
@@ -94,7 +94,7 @@ int main() {
 	do {
 		fscanf(src, "%s\t%s\t%s", &label, &opcode, &op);
 		printf("%10X%10s%10s%10s\n", locctr, label, opcode, op);
-		run(inter, opcode, label, op);
+		pass1(inter, opcode, label, op);
 	} while (strcmp(opcode, "END"));
 	for (int i = 0; i < st_cnt; i++) {
 		fprintf(symtab, "%s\t%X\n", st[i].lab, st[i].addr);
