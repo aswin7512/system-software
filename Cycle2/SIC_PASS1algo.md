@@ -39,3 +39,6 @@
 
    * Write final line to intermediate file
    * Save program length: `program length = locctr - start`
+
+5. Close All files...
+6. **Stop**.
