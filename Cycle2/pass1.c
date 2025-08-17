@@ -89,11 +89,8 @@ int main() {
 		otab[otsize++].addr = opint;
 	}				// to fetch optab into memory...
 
-	printf("Implementing Pass 1...\nIntermediate File...\n");
-	printf("%10s%10s%10s%10s\n", "ADDRESS", "LABEL", "OPCODE", "OPERAND");
 	do {
 		fscanf(src, "%s\t%s\t%s", &label, &opcode, &op);
-		printf("%10X%10s%10s%10s\n", locctr, label, opcode, op);
 		pass1(inter, opcode, label, op);
 	} while (strcmp(opcode, "END"));
 	for (int i = 0; i < st_cnt; i++) {
@@ -101,34 +98,6 @@ int main() {
 	}
 	printf("Intermediate file saved as \"intermediate.sic\"\n");
 	printf("SYMTAB saved as \"symtab\"\n");
+	fclose(src); fclose(optab); fclose(symtab); fclose(inter);
 	return 0;
 }
-
-
-
-/*
-
-Implementing Pass 1...
-Intermediate File...
-   ADDRESS     LABEL    OPCODE   OPERAND
-         0     RESET     START      1000
-      1000        **       LDA      ZERO
-      1003        **       STA   COUNTER
-      1006      LOOP       LDX   COUNTER
-      1009        **       LDA      ZERO
-      100C        **       STA   ALPHA,X
-      100F        **       LDA   COUNTER
-      1012        **       ADD     THREE
-      1015        **       STA   COUNTER
-      1018        **      COMP      SIZE
-      101B        **       JLT      LOOP
-      101E   COUNTER      RESW         1
-      1021      SIZE      WORD       300
-      1024      ZERO      WORD         0
-      1027     THREE      WORD         3
-      102A     ALPHA      RESW       100
-      1156        **       END     RESET
-Intermediate file saved as "intermediate.sic"
-SYMTAB saved as "symtab"
-
-*/
