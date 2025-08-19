@@ -72,10 +72,10 @@ void pass1 (FILE* inter, char opcode[], char label[], char op[]) {
 
 
 int main() {
-	FILE* src = fopen("input.sic", "r");
-	FILE* optab = fopen("optab", "r");
-	FILE* inter = fopen("intermediate.sic", "w");
-	FILE* symtab = fopen("symtab", "w");
+	FILE* src = fopen("ipop/input.sic", "r");
+	FILE* optab = fopen("ipop/optab", "r");
+	FILE* inter = fopen("ipop/intermediate.sic", "w");
+	FILE* symtab = fopen("ipop/symtab", "w");
 
 	if (!src || !optab || !inter || !symtab) {
 		printf("Couldnot Open File...\n");
@@ -96,8 +96,8 @@ int main() {
 	for (int i = 0; i < st_cnt; i++) {
 		fprintf(symtab, "%s\t%X\n", st[i].lab, st[i].addr);
 	}
-	printf("Intermediate file saved as \"intermediate.sic\"\n");
-	printf("SYMTAB saved as \"symtab\"\n");
+	printf("Intermediate file saved as \"intermediate.sic\" in ipop\n");
+	printf("SYMTAB saved as \"symtab\" in ipop\n");
 	fclose(src); fclose(optab); fclose(symtab); fclose(inter);
 	return 0;
 }
