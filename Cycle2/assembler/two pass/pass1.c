@@ -72,10 +72,10 @@ void pass1 (FILE* inter, char opcode[], char label[], char op[]) {
 
 
 int main() {
-	FILE* src = fopen("ipop/input.sic", "r");
-	FILE* optab = fopen("ipop/optab", "r");
-	FILE* inter = fopen("ipop/intermediate.sic", "w");
-	FILE* symtab = fopen("ipop/symtab", "w");
+	FILE* src = fopen("../../ipop/input.sic", "r");
+	FILE* optab = fopen("../../ipop/optab", "r");
+	FILE* inter = fopen("../../ipop/intermediate.sic", "w");
+	FILE* symtab = fopen("../../ipop/symtab", "w");
 
 	if (!src || !optab || !inter || !symtab) {
 		printf("Couldnot Open File...\n");

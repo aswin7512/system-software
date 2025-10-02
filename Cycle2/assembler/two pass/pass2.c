@@ -178,11 +178,11 @@ void pass2(FILE* out, FILE* list) {
 }
 
 int main(void) {
-    FILE *inter = fopen("ipop/intermediate.sic", "r");
-    FILE *otab  = fopen("ipop/optab", "r");
-    FILE *stab  = fopen("ipop/symtab", "r");
-    FILE *out   = fopen("ipop/objcode", "w");
-    FILE *list  = fopen("ipop/listfile.sic", "w");
+    FILE *inter = fopen("../../ipop/intermediate.sic", "r");
+    FILE *otab  = fopen("../../ipop/optab", "r");
+    FILE *stab  = fopen("../../ipop/symtab", "r");
+    FILE *out   = fopen("../../ipop/objcode", "w");
+    FILE *list  = fopen("../../ipop/listfile.sic", "w");
     if (!inter || !otab || !stab || !out || !list) {
         printf("Could not open files...\n");
         return 1;

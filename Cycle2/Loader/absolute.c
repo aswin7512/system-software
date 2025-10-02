@@ -6,7 +6,7 @@
 
 
 int main() {
-    FILE* obj = fopen("../assembler/two pass/ipop/objcode", "r");
+    FILE* obj = fopen("../ipop/objcode", "r");
     if (!obj) {
         printf("Couldnot open file...");
         return 1;
