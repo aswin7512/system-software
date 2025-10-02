@@ -181,7 +181,7 @@ int main(void) {
     FILE *inter = fopen("ipop/intermediate.sic", "r");
     FILE *otab  = fopen("ipop/optab", "r");
     FILE *stab  = fopen("ipop/symtab", "r");
-    FILE *out   = fopen("ipop/output", "w");
+    FILE *out   = fopen("ipop/objcode", "w");
     FILE *list  = fopen("ipop/listfile.sic", "w");
     if (!inter || !otab || !stab || !out || !list) {
         printf("Could not open files...\n");
@@ -196,7 +196,7 @@ int main(void) {
     while (fscanf(inter, "%X %s %s %s", &itr[lcnt].addr, itr[lcnt].label, itr[lcnt].opcode, itr[lcnt].opnd) == 4) lcnt++;
 
     pass2(out, list);
-    printf("Object Code Saved in \"output\" in ipop\n");
+    printf("Object Code Saved in \"objcode\" in ipop\n");
     printf("Listing file Saved in \"listfile.sic\" in ipop\n");
 
     fclose(inter); fclose(otab); fclose(stab); fclose(out); fclose(list);
