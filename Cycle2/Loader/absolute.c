@@ -8,7 +8,7 @@
 int main() {
     FILE* obj = fopen("../ipop/objcode", "r");
     if (!obj) {
-        printf("Couldnot open file...");
+        printf("Couldnot open file...\n");
         return 1;
     }
     int locctr = 0;
