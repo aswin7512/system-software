@@ -262,3 +262,35 @@ int main() {
     printf("Assembly complete. Object code in objcode-op, listing in listfile-op\n");
     return 0;
 }
+
+
+
+
+/*
+Output
+input.sic
+    COPY    START   1000
+    FIRST   LDA     ALPHA
+    **      ADD     BETA
+    **      STA     GAMMA
+    ALPHA   WORD    5
+    BETA    WORD    3
+    GAMMA   RESW    1
+    **      END     FIRST
+
+Assembly complete. Object code in objcode-op, listing in listfile-op
+
+listfile-op
+    0000	COPY     START    1000
+    1000	FIRST    LDA      ALPHA
+    1003	         ADD      BETA
+    1006	         STA      GAMMA
+    1009	ALPHA    WORD     5
+    100C	BETA     WORD     3
+    100F	GAMMA    RESW     1
+
+objcode-op
+    H   COPY 001000 000012
+    T 001000 0F 001009 18100C 0C100F 000005 000003
+    E 001000
+*/
