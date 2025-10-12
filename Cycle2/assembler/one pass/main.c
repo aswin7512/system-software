@@ -46,7 +46,6 @@ int find_sym(char *name) {
     return -1;
 }
 
-// Insert forward (undefined) symbol
 void insert_forward(char *name) {
     int idx = find_sym(name);
     if (idx == -1) {
@@ -68,7 +67,6 @@ int insert_sym(char *name, int addr) {
         }
         symtab[idx].addr = addr;
         symtab[idx].defined = 1;
-        // Patch refs (2-byte address)
         Ref *r = symtab[idx].refs;
         while (r) {
             int p = r->pos;
@@ -97,16 +95,13 @@ void add_ref(int symidx, int pos) {
 }
 
 int get_operand_addr(char *opnd) {
-    // Check if numeric decimal
     char *end;
     long num = strtol(opnd, &end, 10);
     if (*end == '\0') return (int)num;
 
-    // Hex?
     num = strtol(opnd, &end, 16);
     if (*end == '\0') return (int)num;
 
-    // Symbol
     int idx = find_sym(opnd);
     if (idx == -1) {
         insert_forward(opnd);
@@ -190,7 +185,6 @@ int main() {
     int program_len = 0;
 
     while (fgets(line, sizeof(line), in)) {
-        // Remove comment
         char *comm = strchr(line, ';');
         if (comm) *comm = '\0';
 
@@ -212,7 +206,6 @@ int main() {
         } else if (strcmp(op, "END") == 0) {
             break;
         } else {
-            // Handle label before instruction/directive
             if (strlen(label) > 0) {
                 insert_sym(label, locctr);
             }
@@ -225,17 +218,12 @@ int main() {
         }
 
         locctr += loc_change;
-
-        // Listing
         fprintf(listf, "%04X\t%-8s %-8s %s\n", save_loc, label, op, opnd);
     }
 
     program_len = locctr - start_addr;
-
-    // Output object to file with spaces
     fprintf(objf, "H   %s %06X %06X\n", progname, start_addr, program_len);
 
-    // T records, max 30 bytes, instruction-by-instruction (3-byte chunks)
     int i = 0;
     int current_addr = start_addr;
     while (i < objidx) {
@@ -256,7 +244,6 @@ int main() {
 
     fprintf(objf, "E %06X\n", start_addr);
 
-    // Cleanup
     for (int k = 0; k < nsym; k++) {
         Ref *r = symtab[k].refs;
         while (r) {
