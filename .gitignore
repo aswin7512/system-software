@@ -1,2 +1,4 @@
 *.out
-Cycle3
+*.EXE
+*.OBJ
+*.COM
