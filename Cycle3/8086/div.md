@@ -1,6 +1,7 @@
 ### ⌨️ `read` Procedure
 
 **Algorithm:**
+
 * **Step 1:** Start the procedure.
 * **Step 2:** Initialize an accumulator to 0 by pushing 0 onto the stack.
 * **Step 3:** **[Loop Start]** Read one character from the keyboard.
@@ -18,6 +19,7 @@
 ### 🖥️ `display` Procedure
 
 **Algorithm:**
+
 * **Step 1:** Start with the number to display in `AX`.
 * **Step 2:** Initialize a counter (`CX`) to zero.
 * **Step 3:** **[Conversion Loop]** Divide `AX` by 10. The remainder goes to `DX`, the quotient to `AX`.
@@ -35,6 +37,7 @@
 ### ➗ `divide` Procedure
 
 **Algorithm:**
+
 * **Step 1:** Start the procedure.
 * **Step 2:** Move the dividend (`num1`) into the `AX` register.
 * **Step 3:** Move the divisor (`num2`) into the `BX` register.
@@ -48,6 +51,7 @@
 ### 📜 Main Program (`start`)
 
 **Algorithm:**
+
 * **Step 1:** Start.
 * **Step 2:** Initialize the Data Segment (DS) register.
 * **Step 3:** Display the prompt "Enter no: ".

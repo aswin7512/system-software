@@ -1,6 +1,7 @@
 ### ⌨️ `read` Procedure
 
 **Algorithm:**
+
 * **Step 1:** Start the procedure.
 * **Step 2:** Initialize an accumulator to 0 by pushing 0 onto the stack.
 * **Step 3:** **[Loop Start]** Read one character from the keyboard.
@@ -18,6 +19,7 @@
 ### 🖥️ `display` Procedure
 
 **Algorithm:**
+
 * **Step 1:** Start the procedure with the number to be displayed in `AX`.
 * **Step 2:** Initialize a counter (`CX`) to zero.
 * **Step 3:** **[Conversion Loop Start]** Divide the number in `AX` by 10. The remainder goes into `DX`, and the quotient stays in `AX`.
@@ -35,6 +37,7 @@
 ### ✖️ `multiply` Procedure
 
 **Algorithm:**
+
 * **Step 1:** Start the procedure.
 * **Step 2:** Move the value of `num1` into the `AX` register.
 * **Step 3:** Multiply `AX` by the value of `num2`. The 32-bit product is stored across two registers: `DX` (high 16 bits) and `AX` (low 16 bits).
@@ -46,6 +49,7 @@
 ### 📜 Main Program (`start`)
 
 **Algorithm:**
+
 * **Step 1:** Start.
 * **Step 2:** Initialize the Data Segment (DS) register.
 * **Step 3:** Display the prompt "Enter no: ".
