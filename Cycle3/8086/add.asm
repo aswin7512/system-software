@@ -1,81 +1,82 @@
-assume cs:code, ds:data
-data segment
-    msg1 db 0ah,0dh, "Enter no: $"
-    msg2 db 0ah,0dh,"Sum is: $"
-    num1 dw 0000h
-    num2 dw 0000h
-data ends
+ASSUME CS: CODE, DS: DATA
 
-code segment
-    print macro msg
-    lea dx,msg
-    mov ah,09h
-    int 21h
-endm
+DATA SEGMENT
+    MSG1 DB 0AH, 0DH, "Enter No.: $"
+    MSG2 DB 0AH, 0DH, "Sum: $"
+    NUM1 DW 0000H
+    NUM2 DW 0000H
+DATA ENDS
 
-read proc
-    xor ax,ax
-    push ax
-    l1:
-        mov ah,01h
-        int 21h
-        cmp al,0dh
-        je l2
-        mov ah,00h
-        sub al,30h
-        mov bx,ax
-        mov dx,000ah
-        pop ax
-        mul dx
-        add ax,bx
-        push ax
-        jmp l1
-    l2:
-        pop ax
-        ret
-read endp
+CODE SEGMENT
+    PRINT MACRO MSG
+        LEA DX, MSG
+        MOV AH, 09H
+        INT 21H
+    ENDM
 
-display proc
-    push dx
-    mov bx,000ah
-    xor cx,cx
-    l3:
-        xor dx,dx
-        div bx
-        add dx,0030h
-        push dx
-        inc cx
-        cmp ax,0000h
-        jnz l3
-    l4:
-        pop dx
-        mov ah,02h
-        int 21h
-        loop l4
-        pop dx
-        ret
-display endp
+READ PROC
+    XOR AX, AX
+    PUSH AX
+    L1:
+        MOV AH, 01H
+        INT 21H
+        CMP AL, 0DH
+        JE L2
+        MOV AH, 00H
+        SUB AL, 30H
+        MOV BX, AX
+        MOV DX, 000AH
+        POP AX
+        MUL DX
+        ADD AX, BX
+        PUSH AX
+        JMP L1
+    L2:
+        POP AX
+        RET
+READ ENDP
 
-addtn proc
-    mov ax,num1
-    mov bx,num2
-    add ax,bx
-    call display
-    ret
-addtn endp
+DIS PROC
+    PUSH DX
+    XOR CX, CX
+    MOV BX, 000AH
+    L3:
+        XOR DX, DX
+        DIV BX
+        ADD DX, 0030H
+        PUSH DX
+        INC CX
+        CMP AX, 0000H
+        JNZ L3
+    L4:
+        POP DX
+        MOV AH, 02H
+        INT 21H
+        LOOP L4
+    POP DX
+    RET
+DIS ENDP
 
-start:
-    mov ax,data
-    mov ds,ax
-    print msg1
-    call read
-    mov num1,ax
-    print msg1
-    call read
-    mov num2,ax
-    print msg2
-    call addtn
-    mov ah,4ch
-    int 21h
-    code ends
-end start
+ADDITION PROC
+    MOV AX, NUM1
+    MOV BX, NUM2
+    ADD AX, BX
+    CALL DIS
+    RET
+ADDITION ENDP
+
+START:
+    MOV AX, DATA
+    MOV DS, AX
+    PRINT MSG1
+    CALL READ
+    MOV NUM1, AX
+    PRINT MSG1
+    CALL READ
+    MOV NUM2, AX
+    PRINT MSG2
+    CALL ADDITION
+    MOV AH, 4CH
+    INT 21H
+    CODE ENDS
+END START
